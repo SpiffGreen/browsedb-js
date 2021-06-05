@@ -1,0 +1,143 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+:root {
+    /* --app-bg: rgb(28, 28, 29);
+    --app-cl: #eee;
+    --app-light: rgb(48, 48, 48); */
+    --app-bg: #fff;
+    --app-cl: #333;
+    --app-light: rgb(247, 246, 252);
+    --app-blue: rgb(24, 86, 148);
+}
+
+a {
+    color: var(--app-blue);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+body, html {
+    display: flex;
+    min-height: 100%;
+    width: 100%;
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--app-bg);
+    color: var(--app-cl);
+}
+
+code, pre {
+    background: none !important;
+}
+
+nav {
+    height: 100%;
+    /* background: red; */
+}
+
+nav > p {
+    opacity: 0;
+    width: 280px;
+}
+
+.nav-links, .logo1 {
+    position: fixed;
+    margin: 10px 0;
+    padding: 0 10px;
+}
+
+nav li {
+    display: block;
+    list-style: none;
+    color: dodgerblue;
+    margin: 55px 0;
+}
+
+main {
+    height: 100%;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+section {
+    padding: 25px 10px;
+}
+
+.snippet {
+    /* background: #f7f7f7; */
+    background: var(--app-light);
+    max-width: 80%;
+    overflow-x: scroll !important;
+    padding: 3px 10px;
+}
+
+code.language-js {
+    overflow-x: scroll;
+}
+
+#demo select, #demo input, #demo button {
+    font-size: 18px;
+    padding: 3px;
+}
+
+.result {
+    min-height: 150px;
+}
+
+main > section.logo {
+    display: none;
+}
+
+.mob-top > .close {
+    display: none;
+}
+
+@media screen and (max-width: 750px) {
+
+    .snippet {
+        min-width: 100%;
+        width: 100%;
+    }
+    nav {
+        position: fixed;
+        background: var(--app-bg);
+        /* background: red; */
+        width: 100%;
+        height: 100%;
+        transform: translateY(-600px);
+    }
+
+    main > section.logo {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .burger {
+        display: block;
+    }
+
+    .burger > div {
+        background: var(--app-cl);
+        width: 50px;
+        height: 6px;
+        margin: 6px 0;
+        border-radius: 3px;
+    }
+
+    .mob-top .close {
+        display: block;
+        position: fixed;
+        right: 30px;
+        font-size: 35px;
+        color: var(--app-blue);
+    }
+
+    #exeBtn {
+        margin: 6px 0;
+        border-radius: 2px;
+    }
+}

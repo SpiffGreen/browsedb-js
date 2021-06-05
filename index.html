@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrowseDB | A Client Side library for managing localStorage data in mongoose style</title>
+    <link rel="stylesheet" href="prism.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+            <!-- <section class="logo">
+                <h2>BrowseDB 🛢️</h2>
+                <div class="burger">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                </div>
+            </section> -->
+        <section class="mob-top">
+            <h2 class="logo1">BrowseDB 🛢️</h2>
+            <span class="close">Close</span>
+        </section>
+        <p>BrowseDB 🛢️</p>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#getting-started">Getting Started</a></li>
+            <li><a href="#installation">Installation</a></li>
+            <li><a href="#docs">Docs</a></li>
+            <li><a href="#demo">Demo</a></li>
+            <li><a href="https://github.com/SpiffGreen/browsedb" target="_blank">Github</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section class="logo">
+            <h2>BrowseDB 🛢️</h2>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </section>
+        <section id="home">
+            <a href="#"><h3>Intro</h3></a><br>
+            <p>BrowseDB is a javascript client side library for managing localStorage data mongoose style. BrowseDB provides it's users methods for managing localStorage data efficiently. It can be used for simple CRUD operations. BrowseDB data is stored in string format but all data operations are done in json format.</p>
+        </section>
+        
+        <section id="getting-started">
+            <a href="#"><h3>Getting Starting</h3></a><br>
+            <p>It's really simple to get started with BrowseDB.</p>
+            <div class="snippet">
+                <code class="language-js">
+                    <pre>const notes = new BrowseDB("notes");</pre><br>
+                    <pre>notes.create({text: "BrowseDB is awesome!"}); // Creates a new Document</pre>
+                </code>
+            </div>
+        </section>
+
+        <section id="installation">
+            <a href="#"><h3>Installation</h3></a><br>
+            <h4>Using NPM</h4>
+            <div class="snippet">
+                <code class="language-shell">
+                    <pre>$ npm install browsedb</pre>
+                </code>
+            </div><br>
+            <h4>CDN Link</h4>
+            <div class="snippet">
+                <code class="language-html">
+                    <pre>&lt;script src="https://unpkg.com/browsedb@1.0.0/browsedb.min.js"&gt;&lt;/script&gt;</pre>
+                </code>
+            </div>
+        </section>
+        
+        <section id="docs">
+            <a href="#"><h3>Docs</h3></a><br>
+            <p>BrowseDB v1 includes several functions for handling localStorage data. These will be discussed in the below.</p>
+            <br>
+            <h4>BrowseDB.prototype.create</h4>
+            <p>This method is used for creating documents. It acccepts two parameters: data(required) and schema(optional). Data represents data to be stored in localStorage, while schema reperesents a structure or blueprint which each document should follow. Note: Schema is optional so BrowseDB will check for schema, if schema is present it checks data attribute against schema for correctness. This helps for maintaining data integrity.</p>
+            <br>
+            <h4>BrowseDB.prototype.find</h4>
+            <p>This method is dedicated to finding documents. It accepts two optional parameters: query and key. If query is not present or is empty it returns all documents. The query object works like SQL's 'WHERE' statement. The key parameter is also an object. It dictates which field in the each found document will be shown.</p>
+            <br>
+            <h4>BrowseDB.prototype.findById</h4>
+            <p>This method works like the find method except that it finds a document based on the documents id. It accepts one required parameter: data(represents the document ID).</p>
+            <br>
+            <h4>BrowseDB.prototype.update</h4>
+            <p>The update method is used for updating documents. It accepts two parameters: query and data. The query object works like a SQL's WHERE statement. While data object represents the data used for updating the document(s).</p>
+            <br>
+            <h4>BrowseDB.prototype.updateById</h4>
+            <p>The updateById method will update a documents provided document with the id exists. It accepts two required parameters: id and data. The id parameter is expected to be a string and represents the id of the document to be updated. The data parameter is expected to be an object containing changes to the document.</p>
+            <br>
+            <h4>BrowseDB.prototype.updateAll</h4>
+            <p>The updateAll method will update all documents in a collection. It accepts only one parameter: data. The 'data' parameter is expected to be an object holding values for changes.</p>
+            <br>
+            <h4>BrowseDB.prototype.delete</h4>
+            <p>This method works like the find method only that it deletes the found data. It accepts only one optional parameter, used for filter data</p>
+            <br>
+            <h4>BrowseDB.prototype.deleteById</h4>
+            <p>This method is used to delete a document provided the ID matches the document's ID. It accepts one parameter: id(this represents a documents id, which is deleted if found).</p>
+            <br>
+            <h4>BrowseDB.prototype.deleteAll</h4>
+            <p>The deleteAll method accepts no parameter and simply clears the database(localStorage).</p>
+            <br>
+            <h4>BrowseDB.prototype.remove</h4>
+            <p>This is a very similar variant of delete.</p>
+        </section>
+
+        <section id="demo">
+            <a href="#"><h3>Try it out</h3></a><br>
+            <div class="playground">
+                <select name="method" id="method">
+                    <option value="create">create</option>
+                    <option value="find">find</option>
+                    <option value="findById">findById</option>
+                    <option value="update">update</option>
+                    <option value="updateById">updateById</option>
+                    <option value="updateAll">updateAll</option>
+                    <option value="delete">delete</option>
+                    <option value="deleteById">deleteById</option>
+                    <option value="deleteAll">deleteAll</option>
+                    <option value="remove">remove</option>
+                </select>
+                <input type="text" name="val" id="val" value='{"text": "BrowseDB is Great"}'> <button id="exeBtn">Execute</button>
+            </div><br>
+            <div class="snippet">
+                <code class="result language-js">
+                    <pre>{}</pre>
+                </code>
+            </div>
+        </section>
+    </main>
+    <script src="prism.js"></script>
+    <script src="../browsedb.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
